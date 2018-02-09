@@ -4,8 +4,6 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings     #-}
 
-#include "overlapping-compat.h"
-
 -- | An @HTML@ empty data type with `MimeRender` instances for @lucid@'s
 -- `ToHtml` class and `Html` datatype.
 -- You should only need to import this module for it's instances and the
@@ -27,10 +25,5 @@ data HTML deriving Typeable
 instance Accept HTML where
     contentType _ = "text" M.// "html" M./: ("charset", "utf-8")
 
-instance OVERLAPPABLE_
-         ToHtml a => MimeRender HTML a where
+instance ToHtml a => MimeRender HTML a where
     mimeRender _ = renderBS . toHtml
-
-instance OVERLAPPING_
-         MimeRender HTML (Html a) where
-    mimeRender _ = renderBS
