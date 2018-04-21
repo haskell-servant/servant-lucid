@@ -1,5 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+-- | Some helper functions for creating values in
+-- [lucid](https://hackage.haskell.org/package/lucid) DSLs that work
+-- with [servant](https://hackage.haskell.org/package/servant).
 module Lucid.Servant
   ( absHref_
   , relHref_
