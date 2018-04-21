@@ -5,6 +5,8 @@ description:
   Servant support for lucid.
   .
   'HTML' content type which will use `ToHtml` class.
+  .
+  `safeHref_` uses a `Link` rather than `Text`.
 homepage:            http://haskell-servant.readthedocs.org/
 license:             BSD3
 license-file:        LICENSE
@@ -29,6 +31,7 @@ source-repository head
 
 library
   exposed-modules:     Servant.HTML.Lucid
+                       Lucid.Servant
   build-depends:       base       >=4.7     && <5
                      , http-media >=0.6.4   && <0.8
                      , lucid      >=2.9.8   && <2.10
