@@ -29,7 +29,7 @@ server = return "example" :<|> return html where
     html = do
         p_ $ b_ "bar"
         p_ $ i_ "iik"
-        p_ $ a_ [safeHref_ stringLink] "string"
+        p_ $ a_ [absHref_ stringLink] "string"
 
 app :: Application
 app = serve api server

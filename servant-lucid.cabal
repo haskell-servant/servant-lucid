@@ -6,7 +6,7 @@ description:
   .
   'HTML' content type which will use `ToHtml` class.
   .
-  `safeHref_` uses a `Link` rather than `Text`.
+  Lucid.Servant uses `Link` rather than `Text` for safe 'href' attributes.
 homepage:            http://haskell-servant.readthedocs.org/
 license:             BSD3
 license-file:        LICENSE

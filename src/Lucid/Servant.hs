@@ -1,14 +1,27 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Lucid.Servant
-  ( safeHref_
+  ( absHref_
+  , relHref_
   ) where
 
-import Servant.API (toUrlPiece)
-import Servant.Utils.Links (Link)
+import Data.Monoid ((<>))
 import Lucid (Attribute)
 import Lucid.Html5 (href_)
+import Servant.API (toUrlPiece)
+import Servant.Utils.Links (Link)
 
--- | Create an `href` attribute from a 'Link'.
+-- | Create an `href` attribute from a 'Link', with leading '/'.
 --
--- "servant" ensures that any 'Link' is valid.
-safeHref_ :: Link -> Attribute
-safeHref_ = href_ . toUrlPiece
+-- "servant" ensures that any 'Link' is valid within an API.
+-- This function ensures it is possible to navigate to that endpoint from
+-- a page which shares a root with that API.
+absHref_ :: Link -> Attribute
+absHref_ = href_ . ("/" <>) . toUrlPiece
+
+-- | Create an `href` attribute from a 'Link', as a relative link.
+--
+-- "servant" ensures that any 'Link' is valid within an API.
+-- Use this function if a relative link (no leading '/') is required.
+relHref_ :: Link -> Attribute
+relHref_ = href_ . toUrlPiece
