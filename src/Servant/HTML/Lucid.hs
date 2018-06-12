@@ -15,7 +15,7 @@
 module Servant.HTML.Lucid where
 
 import           Data.Typeable      (Typeable)
-import           Lucid              (Html, ToHtml (..), renderBS)
+import           Lucid              (ToHtml (..), renderBS)
 import qualified Network.HTTP.Media as M
 import           Servant.API        (Accept (..), MimeRender (..))
 

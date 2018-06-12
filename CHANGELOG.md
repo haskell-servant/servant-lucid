@@ -1,6 +1,7 @@
 # 0.8.1
 
 - Support `servant-0.14`
+- Add `Lucid.Servant` with `safeHref_` function and its variants.
 
 # 0.8
 
