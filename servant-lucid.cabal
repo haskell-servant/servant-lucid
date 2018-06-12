@@ -1,5 +1,5 @@
 name:                servant-lucid
-version:             0.8
+version:             0.8.1
 synopsis:            Servant support for lucid
 description:
   Servant support for lucid.
@@ -32,7 +32,7 @@ library
   build-depends:       base       >=4.7     && <5
                      , http-media >=0.6.4   && <0.8
                      , lucid      >=2.9.8   && <2.10
-                     , servant    >=0.7     && <0.14
+                     , servant    >=0.7     && <0.15
   hs-source-dirs:      src
   default-language:    Haskell2010
   ghc-options: -Wall
@@ -47,7 +47,7 @@ test-suite example
       base
     , lucid
     , servant-lucid
-    , servant-server >=0.4.4.5  && <0.14
+    , servant-server >=0.4.4.5  && <0.15
     , wai            >=3.0.3.0  && <3.3
     , warp           >=3.0.13.1 && <3.3
   default-language: Haskell2010
