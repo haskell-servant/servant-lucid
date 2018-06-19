@@ -1,30 +1,46 @@
-{-# LANGUAGE DataKinds       #-}
-{-# LANGUAGE TypeOperators   #-}
+-- ConstraintKinds needed only for 7.8.4
+{-# LANGUAGE ConstraintKinds   #-}
+{-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeOperators     #-}
 module Main (main) where
 
-import Lucid
-import Data.Maybe         (fromMaybe)
-import Network.Wai        (Application)
-import Servant
-import Servant.HTML.Lucid
-import System.Environment (getArgs, lookupEnv)
-import Text.Read          (readMaybe)
+import           Data.Maybe
+                 (fromMaybe)
+import           Lucid
+import           Lucid.Servant
+import           Network.Wai
+                 (Application)
+import           Servant
+import           Servant.HTML.Lucid
+import           System.Environment
+                 (getArgs, lookupEnv)
+import           Text.Read
+                 (readMaybe)
 
 import qualified Network.Wai.Handler.Warp as Warp
 
 type API = "string" :> Get '[HTML] String
-    :<|> "html" :> Get '[HTML] (Html ())
+    :<|> "nested" :> "html" :> Get '[HTML] (Html ())
 
 api :: Proxy API
 api = Proxy
+
+apiLink_
+    :: (IsElem endpoint API, HasLink endpoint)
+    => Proxy endpoint -> MkLink endpoint Attribute
+apiLink_ = safeAbsHref_ (Proxy :: Proxy API)
+
+stringLink_ :: Attribute
+stringLink_ = apiLink_ (Proxy :: Proxy ("string" :> Get '[HTML] String))
 
 server :: Server API
 server = return "example" :<|> return html where
     html :: Html ()
     html = do
-        b_ "bar"
-        i_ "iik"
+        p_ $ b_ "bar"
+        p_ $ i_ "iik"
+        p_ $ a_ [stringLink_] "string"
 
 app :: Application
 app = serve api server
