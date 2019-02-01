@@ -14,6 +14,7 @@
 -- Will then check that @a@ has a `ToHtml` instance, or is `Html`.
 module Servant.HTML.Lucid where
 
+import qualified Data.List.NonEmpty as NE
 import           Data.Typeable      (Typeable)
 import           Lucid              (ToHtml (..), renderBS)
 import qualified Network.HTTP.Media as M
@@ -23,7 +24,9 @@ data HTML deriving Typeable
 
 -- | @text/html;charset=utf-8@
 instance Accept HTML where
-    contentType _ = "text" M.// "html" M./: ("charset", "utf-8")
+    contentTypes _ =
+      "text" M.// "html" M./: ("charset", "utf-8") NE.:|
+      ["text" M.// "html"]
 
 instance ToHtml a => MimeRender HTML a where
     mimeRender _ = renderBS . toHtml
