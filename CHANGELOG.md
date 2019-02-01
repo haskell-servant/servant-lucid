@@ -1,3 +1,7 @@
+# 0.8.2
+
+- Also accept content type without character set i.e `text/html`
+
 # 0.8.1
 
 - Support `servant-0.14`
