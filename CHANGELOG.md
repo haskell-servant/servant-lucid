@@ -1,4 +1,4 @@
-# 0.8.2
+# 0.9
 
 - Also accept content type without character set i.e `text/html`
 

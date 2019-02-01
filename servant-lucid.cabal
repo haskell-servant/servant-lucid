@@ -1,6 +1,6 @@
 cabal-version:       >=1.10
 name:                servant-lucid
-version:             0.8.2
+version:             0.9
 
 synopsis:            Servant support for lucid
 description:
