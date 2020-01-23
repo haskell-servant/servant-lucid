@@ -1,7 +1,6 @@
 cabal-version:       >=1.10
 name:                servant-lucid
-version:             0.9
-x-revision:          3
+version:             0.9.0.1
 
 synopsis:            Servant support for lucid
 description:
@@ -22,9 +21,7 @@ category:            Web, Servant
 build-type:          Simple
 extra-source-files:  CHANGELOG.md
 tested-with:
-  GHC ==7.8.4
-   || ==7.10.3
-   || ==8.0.2
+  GHC ==8.0.2
    || ==8.2.2
    || ==8.4.4
    || ==8.6.5
@@ -37,11 +34,11 @@ source-repository head
 library
   exposed-modules:     Servant.HTML.Lucid
                        Lucid.Servant
-  build-depends:       base       >=4.7     && <5
+  build-depends:       base       >=4.9     && <5
                      , http-media >=0.6.4   && <0.9
                      , lucid      >=2.9.8   && <2.10
                      , text       >=1.2.3.0 && <1.3
-                     , servant    >=0.14    && <0.17
+                     , servant    >=0.17    && <0.18
 
   if !impl(ghc >= 8.0)
     build-depends:     semigroups >=0.18.4  && <0.20
@@ -60,7 +57,7 @@ test-suite example
       base
     , lucid
     , servant-lucid
-    , servant-server >=0.14     && <0.17
+    , servant-server >=0.14     && <0.18
     , wai            >=3.0.3.0  && <3.3
     , warp           >=3.0.13.1 && <3.4
   default-language: Haskell2010

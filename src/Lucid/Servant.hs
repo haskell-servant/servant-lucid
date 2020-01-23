@@ -24,7 +24,7 @@ import           Lucid.Html5
                  (href_)
 import           Servant.API
                  (toUrlPiece)
-import           Servant.Utils.Links
+import           Servant.Links
                  (HasLink, IsElem, Link, MkLink, safeLink')
 
 -- | 'safeLink' variant which creates lucid's 'Attribute' given base url.
