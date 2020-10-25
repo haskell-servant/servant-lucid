@@ -20,13 +20,7 @@ copyright:           2015-2018 Servant Contributors
 category:            Web, Servant
 build-type:          Simple
 extra-source-files:  CHANGELOG.md
-tested-with:
-  GHC ==8.0.2
-   || ==8.2.2
-   || ==8.4.4
-   || ==8.6.5
-   || ==8.8.1
-   || ==8.8.3
+tested-with: GHC ==8.0.2 || ==8.2.2 || ==8.4.4 || ==8.6.5 || ==8.8.4 || ==8.10.2
 
 source-repository head
   type: git
