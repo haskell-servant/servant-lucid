@@ -31,7 +31,7 @@ library
                        Lucid.Servant
   build-depends:       base       >=4.9     && <5
                      , http-media >=0.6.4   && <0.9
-                     , lucid      >=2.9.8   && <2.11
+                     , lucid      >=2.9.8   && <2.12
                      , text       >=1.2.3.0 && <1.3
                      , servant    >=0.17    && <0.19
 
